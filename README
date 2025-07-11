@@ -1,0 +1,111 @@
+# Marketing Analysis & Power BI
+
+> **Interactive dashboards and reproducible analytics workflow for the Marketing department.**
+
+---
+
+## 📁 Repository Layout
+
+```
+Marketing Analysis/
+├── .venv/                       # Local Python virtual‑environment (not tracked)
+├── data/                        # Raw input data
+│   └── Sales Transaction v4a.csv
+├── exports/                     # Cleaned & model‑ready data created by Code.py
+│   ├── country_monthly_revenue.csv
+│   ├── customer_segments.csv
+│   ├── daily_revenue_forecast.csv
+│   └── product_revenue.csv
+├── figures/                     # PNGs generated for the report/README
+├── Code.py                      # End‑to‑end ETL + modelling script (Python / pandas / Prophet)
+├── sales_dashboard.pbix         # Power BI report file
+├── sales.db                     # Local SQLite database (created by Code.py)
+└── README.md                    # You‑are‑here 📖
+```
+
+
+---
+
+## 🚀 Quick Start
+
+1. **Clone** the repo and create a virtual‑environment:
+
+   ```bash
+   git clone https://github.com/your‑org/marketing‑analysis.git
+   cd marketing‑analysis
+   python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   ```
+2. **Install** dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run** the pipeline:
+
+   ```bash
+   python Code.py  # writes exports/, figures/, sales.db
+   ```
+4. **Open** `sales_dashboard.pbix` in Power BI Desktop, refresh the model, and publish to the Power BI Service if desired.
+
+---
+
+## 🎯 Business Questions Answered
+
+| # | Question                                                  | Technique                            |
+| - | --------------------------------------------------------- | ------------------------------------ |
+| 1 | How has monthly revenue evolved across countries?         | SQL → Power BI line & map visuals    |
+| 2 | Which customer segments drive the highest monetary value? | RFM clustering + scatter in Power BI |
+| 3 | What is the daily sales forecast and its uncertainty?     | Prophet model → ribbon chart         |
+| 4 | Which products generate the most revenue?                 | Pareto / bar chart                   |
+| 5 | What is the AOV trend and seasonality?                    | Time‑series decomposition            |
+| 6 | Real‑time KPIs (Total Revenue, AOV, Active Customers)     | Power BI dashboard cards             |
+
+---
+
+## 🛠️  Main Components
+
+* **Code.py** – Ingests `data/`, builds a local SQLite DB (`sales.db`), produces cleaned CSVs in `exports/`, plots in `figures/`, and a Prophet forecast for daily revenue.
+* **Power BI report** – Connects to `exports/` + `sales.db`, contains report pages per business question and a single‑page dashboard.
+
+---
+
+## 💾 Data Sources & Outputs
+
+| Folder     | Purpose                                             |
+| ---------- | --------------------------------------------------- |
+| `data/`    | Original CSVs supplied by BI / Data Warehouse       |
+| `exports/` | Model‑ready tables consumed by Power BI (generated) |
+| `figures/` | Static images for slides / README (generated)       |
+| `sales.db` | Normalised schema for advanced DAX & relationships  |
+
+---
+
+## 📦 Packaging & Deployment
+
+1. **Commit & Push**
+
+   ```bash
+   git add .
+   git commit -m "feat: initial marketing analytics pipeline"
+   git push origin main
+   ```
+2. **GitHub Actions (optional)** – Configure a CI workflow to run `python Code.py` on every push and attach exports as artifacts.
+3. **Power BI Service** – Publish `sales_dashboard.pbix`, set data source credentials to the GitHub‑hosted CSV raw URLs or an Azure Storage container.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! Please open an issue first to discuss major changes.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License – see `LICENSE` for details.
+
+---
+
+## ✉️ Contact
+
+Made with 💚 by \<Priel David> – reach me at [priel0549920@gmail.com]
