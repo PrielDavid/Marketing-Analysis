@@ -57,7 +57,7 @@ Marketing Analysis/
 1. **Clone** the repo & create a virtual‑environment:
 
    ```bash
-   git clone https://github.com/PrielDavid/Marketing‑Analysis.git
+   git clone https://github.com/PrielDavid/Marketing-Analysis
    cd marketing‑analysis
    python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
    ```
@@ -93,14 +93,29 @@ The project answers (and visualises) these questions:
 ## Dashboards & Reports
 
 <div align="center">
-  <img src="figures/overview_dashboard.png" width="700" alt="Power BI dashboard screenshot" />
+  <img src="figures/overview_dashboard.png" width="760" alt="Main Power BI dashboard – Overview of revenue, AOV, active customers and forecast" />
 </div>
 
-*Open the `.pbix` file for an interactive version.*
+> **Heads‑up:** If the image above doesn’t load, it just means you haven’t added the screenshot yet.
+>
+> **How to add it:**
+>
+> 1. Open **sales\_dashboard.pbix** in **Power BI Desktop** and navigate to the *Overview* page.
+> 2. Click **File → Export → Export to PNG** (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>).
+> 3. Save the file as **`overview_dashboard.png`**.
+> 4. Move / copy the PNG into the **`figures/`** folder of this repo.
+> 5. Commit and push:
+>
+>    ```bash
+>    git add figures/overview_dashboard.png
+>    git commit -m "docs: add dashboard screenshot"
+>    git push
+>    ```
+> 6. Refresh the README on GitHub – the dashboard preview should now appear.
 
 ---
 
-## Tech Stack
+## Tech Stack Stack
 
 * **Python 3.11** · pandas · Prophet · SQLite
 * **Power BI Desktop** (DAX, Power Query M)
